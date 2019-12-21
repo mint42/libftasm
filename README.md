@@ -29,7 +29,7 @@ To set up this project, run `git clone https://github.com/mint42/libftasm` in th
 
 ## References 
 
-- [insert references here]
+- https://www.tutorialspoint.com/assembly_programming/index.htm
 
 ## Author
 

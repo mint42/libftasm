@@ -16,7 +16,7 @@
 
 global	_ft_bzero
 
-section .text
+section	.text
 
 _ft_bzero:
 	push		rbp

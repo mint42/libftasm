@@ -1,4 +1,3 @@
-
 # LIBFTASM
 
 Libftasm is an introduction to assembly programming. This project has a recreation of some basic functions from the C stdlib.
@@ -29,7 +28,10 @@ To set up this project, run `git clone https://github.com/mint42/libftasm` in th
 
 ## References 
 
-- https://www.tutorialspoint.com/assembly_programming/index.htm
+- [x86 asm Wiki](https://en.wikipedia.org/wiki/X86_assembly_language)
+- [NASM Wiki](https://en.wikipedia.org/wiki/Netwide_Assembler)
+- [x86-64 Calling Conventions](https://aaronbloomfield.github.io/pdr/book/x86-64bit-ccc-chapter.pdf)
+- [Stack and Base pointers explained](https://stackoverflow.com/questions/1395591/what-is-exactly-the-base-pointer-and-stack-pointer-to-what-do-they-point)
 
 ## Author
 

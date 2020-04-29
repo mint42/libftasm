@@ -1,6 +1,6 @@
-;
-;	ssize_t		ft_read(int rd, void *buf, size_t count);
-;
+;-----------------------------------------------------------;
+;	ssize_t		ft_read(int rd, void *buf, size_t count);	;
+;-----------------------------------------------------------;
 
 global	_ft_read
 

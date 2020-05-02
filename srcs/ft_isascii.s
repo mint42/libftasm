@@ -22,19 +22,14 @@ _ft_isascii:
 	push	rbp
 	mov		rbp, rsp
 
-	cmp		rdi, 0
-	jl		_false
-	cmp		rdi, 127
-	jg		_false
-	jmp		_true
+	xor		rax, rax	; set ret = 0
 
-_true:
-	mov		eax, 1
-	jmp		_end
+	cmp		rdi, 0		; if (c < 0)
+	jl		_end		;	goto _end
+	cmp		rdi, 127	; if (c > 127)
+	jg		_end		;	goto _end
 
-_false:
-	mov		eax, 0
-	jmp		_end
+	mov		rax, 1		; true -> set ret = 1
 
 _end:
 	pop		rbp

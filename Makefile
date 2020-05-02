@@ -6,7 +6,7 @@
 #    By: rreedy <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 11:54:37 by rreedy            #+#    #+#              #
-#    Updated: 2020/05/01 01:10:11 by mint             ###   ########.fr        #
+#    Updated: 2020/05/02 04:07:59 by mint             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,9 @@ start:
 stop:
 	@ printf "$(FINISH_COLOR) done$(CLEAR_COLOR)\n"
 
-$(TEST_NAME): $(NAME) test_main.c
-	$(CC) $(CFLAGS) test_main.c -o $(TEST_NAME) $(LDFLAGS)
+$(TEST_NAME): $(NAME) main.c
+	$(CC) $(CFLAGS) main.c -o $(TEST_NAME) $(LDFLAGS)
+	touch test.txt system.txt
 
 %.o: %.s
 	@- nasm -f elf64 $<
@@ -52,6 +53,7 @@ fclean: clean
 			printf "$(DELETE_COLOR)Removing $(NAME_COLOR)$(NAME)\n"; \
 	   fi;
 	@- $(RM) $(NAME)
-	@- $(RM) -r test_main.o $(TEST_NAME)
+	@- $(RM) -r main.o $(TEST_NAME)
+	@- $(RM) test.txt system.txt
 
 re: fclean all

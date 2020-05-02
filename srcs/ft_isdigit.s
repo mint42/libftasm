@@ -1,44 +1,35 @@
 ; ---------------------------------------------------------------------------- ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_isalpha.s                                       :+:      :+:    :+:    ;
+;    ft_isdigit                                         :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: rreedy <marvin@42.fr>                      +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2019/12/20 00:11:45 by rreedy            #+#    #+#              ;
-;    Updated: 2019/12/20 00:11:45 by rreedy           ###   ########.fr        ;
+;    Created: 2019/12/20 00:41:56 by rreedy            #+#    #+#              ;
+;    Updated: 2019/12/20 00:41:58 by rreedy           ###   ########.fr        ;
 ;                                                                              ;
 ; ---------------------------------------------------------------------------- ;
 
 ;
-; int ft_isalpha(int c);
+; int ft_isdigit(int c);
 ;
 
-global	_ft_isalpha
+global	_ft_isdigit
 
 section .text
 
-_ft_isalpha:
+_ft_isdigit:
 	push	rbp
 	mov		rbp, rsp
 
-	cmp		rdi, 65
-	jl		_false
-	cmp		rdi, 122
-	jg		_false
-	cmp		rdi, 91
-	jl		_true
-	cmp		rdi, 96
-	jg		_true
-	jmp		_false
+	xor		rax, rax	; set ret = 0
 
-_true:
-	mov		eax, 1
-	jmp		_end
+	cmp		rdi, 48		; if (c < 48)
+	jl		_end		;	goto _end
+	cmp		rdi, 57		; if (c > 57)
+	jg		_end		;	goto _end
 
-_false:
-	mov		eax, 0
-	jmp		_end
+	mov		eax, 1		; true -> set ret = 1
 
 _end:
 	pop		rbp

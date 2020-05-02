@@ -2,7 +2,7 @@
 # define LIBASM_H
 
 ssize_t		_ft_read(int rd, void *buf, size_t count);
-size_t		_ft_strcmp(const char *s1, const char *s2);
+int			_ft_strcmp(const char *s1, const char *s2);
 char		*_ft_strcpy(char *dst, const char *src);
 char		*_ft_strdup(const char *s);
 size_t		_ft_strlen(const char *s);

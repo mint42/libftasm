@@ -13,15 +13,17 @@ _ft_strcpy:
 			push	rbp
 			mov		rbp, rsp
 
-			push	rdi
-			push	rsi
-			mov		rdi, rsi		; move RSI to parameter 1
-			call	_ft_strlen
-			pop		rsi
-			pop		rdi
-			inc 	rax				; add one to consider null term
-			mov		rdx, rax		; move len to parameter 3
-			call	_ft_strncpy
+			push	rdi				; save (dst)
+			push	rsi				; save (src)
+			mov		rdi, rsi		; move (src) to parameter 1
+			call	_ft_strlen		; (src);
+			pop		rsi				; pop saved (src)
+			pop		rdi				; pop saved (dst)
+
+			mov		rdx, rax		; move (len) to parameter 3
+			inc 	rdx				; ++(len) for null term
+
+			call	_ft_strncpy		; (dst, src, len);
 
 			pop		rbp
 			ret

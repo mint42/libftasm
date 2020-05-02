@@ -19,14 +19,15 @@ global	_ft_bzero
 section .text
 
 _ft_bzero:
-	push		rbp
-	mov			rbp, rsp
+	push	rbp
+	mov		rbp, rsp
 
-	cmp			rdi, 0
-	je			_end
-	mov			rcx, rsi
-	rep movsb	[rdi + rcx], 0
+	mov		rcx, rsi		; i = len
+
+_loop:
+	mov		byte [rdi], 0	; (*dst)++ = 0;
+	loop	_loop			; if (--i != 0) -> loop
 
 _end:
-	pop			rbp
+	pop		rbp
 	ret

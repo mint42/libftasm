@@ -3,6 +3,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <string.h>
 #include "libasm.h"
 
 int main()
@@ -12,56 +13,59 @@ int main()
 	ft_strlen
 -------------------------------------------------*/
 
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 	printf("   FT_STRLEN:\n");
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 
 	size_t	tst_len;
 	size_t	sys_len;
 
-// t1 -> basic
+printf("------------------------\n");
+printf("Test 1: Basic\n");
+printf("------------------------\n");
 
-	char	str[13] = "Hello World!\n";
+	char	*str = "Hello World!";
+
 	tst_len = _ft_strlen(str);
 	sys_len = strlen(str);
 	printf("STR:		|%s|\n", str);
 	printf("len tst:	|%ld|\n", tst_len);
 	printf("len sys:	|%ld|\n", sys_len);
 
-	printf("\n");
-
-// t2 -> empty
+printf("------------------------\n");
+printf("Test 2: Empty String\n");
+printf("------------------------\n");
 
 	tst_len = _ft_strlen("");
 	sys_len = strlen("");
 	printf("STR:		|%s|\n", "");
-	printf("len tst:	|%s|\n", tst_len);
-	printf("len sys:	|%s|\n", sys_len);
+	printf("len tst:	|%ld|\n", tst_len);
+	printf("len sys:	|%ld|\n", sys_len);
 
-	printf("\n");
+printf("\n");
+printf("Test 3: NULL String\n");
+printf("\n");
 
-// t3 -> null
+//	tst_len = _ft_strlen(NULL);
+//	sys_len = strlen(NULL);
+//	printf("STR:		|%s|\n", "NULL");
+//	printf("len tst:	|%s|\n", tst_len);
+//	printf("len sys:	|%s|\n", sys_len);
 
-	tst_len = _ft_strlen(NULL);
-	sys_len = strlen(NULL);
-	printf("STR:		|%s|\n", "NULL");
-	printf("len tst:	|%s|\n", tst_len);
-	printf("len sys:	|%s|\n", sys_len);
+printf("------------------------\n");
+printf("Test 4: Long String\n");
+printf("------------------------\n");
 
-	printf("\n");
+	char	str2[5000];
 
-// t4 -> long
-
-	char	str2[50000];
-
-	for(int i = 0; i < 50000; i++)
+	for(int i = 0; i < 5000; i++)
 	{
 		str2[i] = (rand() % 94) + 32;
 	}
-	str2[49999] = '\0';
+	str2[4999] = '\0';
 
-	tst_len = _ft_strlen(str);
-	sys_len = strlen(str);
+	tst_len = _ft_strlen(str2);
+	sys_len = strlen(str2);
 	printf("STR:		|%s|\n", str2);
 	printf("len tst:	|%ld|\n", tst_len);
 	printf("len sys:	|%ld|\n", sys_len);
@@ -72,413 +76,373 @@ int main()
 	ft_strcpy
 -------------------------------------------------*/
 
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 	printf("   FT_STRCPY:\n");
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 
-// t1 -> basic
+printf("------------------------\n");
+printf("Test 1: Basic\n");
+printf("------------------------\n");
 
-	char	src_cpy1[13] = "Hello World!\n";
-	char	tst_dst_cpy1[13];
-	char	sys_dst_cpy1[13];
-
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy1);
-	printf("TST DST STR:	|%s|\n", tst_dst_cpy1);
-	printf("SYS DST STR:	|%s|\n", sys_dst_cpy1);
+	char	*src_cpy1 = "Hello World!";
+	char	*tst_dst_cpy1 = malloc(13);
+	char	*sys_dst_cpy1 = malloc(13);
 
 	tst_dst_cpy1 = _ft_strcpy(tst_dst_cpy1, src_cpy1);
 	sys_dst_cpy1 = strcpy(sys_dst_cpy1, src_cpy1);
 
-	printf("After:\n");
 	printf("    SRC STR:	|%s|\n", src_cpy1);
 	printf("TST DST STR:	|%s|\n", tst_dst_cpy1);
 	printf("SYS DST STR:	|%s|\n", sys_dst_cpy1);
 
-// t2 -> longer src
+printf("------------------------\n");
+printf("Test 2: Different\n");
+printf("------------------------\n");
 
-	char	src_cpy2[13] = "Hello World!\n";
-	char	tst_dst_cpy2[11];
-	char	sys_dst_cpy2[11];
+	char	*src_cpy1_5 = "AAAAAA";
 
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy2);
-	printf("TST DST STR:	|%s|\n", tst_dst_cpy2);
-	printf("SYS DST STR:	|%s|\n", sys_dst_cpy2);
+	tst_dst_cpy1 = _ft_strcpy(tst_dst_cpy1, src_cpy1_5);
+	sys_dst_cpy1 = strcpy(sys_dst_cpy1, src_cpy1_5);
 
-	tst_dst_cpy2 = _ft_strcpy(tst_dst_cpy2, src_cpy2);
-	sys_dst_cpy2 = strcpy(sys_dst_cpy2, src_cpy2);
+	printf("    SRC STR:	|%s|\n", src_cpy1_5);
+	printf("TST DST STR:	|%s|\n", tst_dst_cpy1);
+	printf("SYS DST STR:	|%s|\n", sys_dst_cpy1);
 
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy2);
-	printf("TST DST STR:	|%s|\n", tst_dst_cpy2);
-	printf("SYS DST STR:	|%s|\n", sys_dst_cpy2);
 
-// t3 -> longer dst
+printf("------------------------\n");
+printf("Test 3: Longer Src\n");
+printf("------------------------\n");
 
-	char	src_cpy3[13] = "Hello World!\n";
-	char	tst_dst_cpy3[15];
-	char	sys_dst_cpy3[15];
+//	char	*src_cpy2 = "Hello World!";
+//	char	*tst_dst_cpy2 = malloc(11);
+//	char	*sys_dst_cpy2 = malloc(11);
+//
+//	tst_dst_cpy2 = _ft_strcpy(tst_dst_cpy2, src_cpy2);
+//	sys_dst_cpy2 = strcpy(sys_dst_cpy2, src_cpy2);
+//
+//	printf("    SRC STR:	|%s|\n", src_cpy2);
+//	printf("TST DST STR:	|%s|\n", tst_dst_cpy2);
+//	printf("SYS DST STR:	|%s|\n", sys_dst_cpy2);
 
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy3);
-	printf("TST DST STR:	|%s|\n", tst_dst_cpy3);
-	printf("SYS DST STR:	|%s|\n", sys_dst_cpy3);
+printf("------------------------\n");
+printf("Test 4: Longer Dst\n");
+printf("------------------------\n");
+
+	char	*src_cpy3 = "Hello World!";
+	char	*tst_dst_cpy3 = malloc(15);
+	char	*sys_dst_cpy3 = malloc(15);
 
 	tst_dst_cpy3 = _ft_strcpy(tst_dst_cpy3, src_cpy3);
 	sys_dst_cpy3 = strcpy(sys_dst_cpy3, src_cpy3);
 
-	printf("After:\n");
 	printf("    SRC STR:	|%s|\n", src_cpy3);
 	printf("TST DST STR:	|%s|\n", tst_dst_cpy3);
 	printf("SYS DST STR:	|%s|\n", sys_dst_cpy3);
 
-// t4 -> empty src
+printf("------------------------\n");
+printf("Test 5: Empty Src\n");
+printf("------------------------\n");
 
-	char	sys_dst_cpy4[13];
-	char	tst_dst_cpy4[13];
-
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", "");
-	printf("TST DST STR:	|%s|\n", tst_dst_cpy4);
-	printf("SYS DST STR:	|%s|\n", sys_dst_cpy4);
+	char	*sys_dst_cpy4 = malloc(13);
+	char	*tst_dst_cpy4 = malloc(13);
 
 	tst_dst_cpy4 = _ft_strcpy(tst_dst_cpy4, "");
 	sys_dst_cpy4 = strcpy(sys_dst_cpy4, "");
 
-	printf("After:\n");
 	printf("    SRC STR:	|%s|\n", "");
 	printf("TST DST STR:	|%s|\n", tst_dst_cpy4);
 	printf("SYS DST STR:	|%s|\n", sys_dst_cpy4);
 
-// t5 -> empty dst
+printf("------------------------\n");
+printf("Test 6: Empty Dst\n");
+printf("------------------------\n");
 
-	char	src_cpy4[13] = "Hello World!\n";
+//	char	*src_cpy4 = "Hello World!";
+//
+//	_ft_strcpy("", src_cpy4);
+//	strcpy("", src_cpy4);
+//
+//	printf("    SRC STR:	|%s|\n", src_cpy4);
+//	printf("TST DST STR:	|%s|\n", "");
+//	printf("SYS DST STR:	|%s|\n", "");
 
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy4);
-	printf("TST DST STR:	|%s|\n", "");
-	printf("SYS DST STR:	|%s|\n", "");
+printf("------------------------\n");
+printf("Test 7: NULL Src\n");
+printf("------------------------\n");
 
-	_ft_strcpy("", src_cpy4);
-	strcpy("", src_cpy4);
+//	char	*sys_dst_cpy5 = malloc(15);
+//	char	*tst_dst_cpy5 = malloc(15);
+//
+//	tst_dst_cpy5 = _ft_strcpy(tst_dst_cpy5, 0);
+//	sys_dst_cpy5 = strcpy(sys_dst_cpy5, 0);
+//
+//	printf("    SRC STR:	|%s|\n", 0);
+//	printf("TST DST STR:	|%s|\n", tst_dst_cpy5);
+//	printf("SYS DST STR:	|%s|\n", sys_dst_cpy5);
 
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy4);
-	printf("TST DST STR:	|%s|\n", "");
-	printf("SYS DST STR:	|%s|\n", "");
+printf("------------------------\n");
+printf("Test 8: NULL Dst\n");
+printf("------------------------\n");
 
-// t6 -> NULL src
+//	char	*src_cpy5 = "Hello World!";
+//
+//	_ft_strcpy(0, src_cpy5);
+//	strcpy(0, src_cpy5);
+//
+//	printf("    SRC STR:	|%s|\n", src_cpy5);
+//	printf("TST DST STR:	|%s|\n", 0);
+//	printf("SYS DST STR:	|%s|\n", 0);
 
-	char	sys_dst_cpy5[15];
-	char	tst_dst_cpy5[15];
+printf("------------------------\n");
+printf("Test 9: Long\n");
+printf("------------------------\n");
 
-	printf("Before:\n");
+	char	*src_cpy6 = malloc(5000);
+	char	*tst_dst_cpy6 = malloc(5000);
+	char	*sys_dst_cpy6 = malloc(5000);
 
-	tst_dst_cpy5 = _ft_strcpy(tst_dst_cpy5, 0);
-	sys_dst_cpy5 = strcpy(sys_dst_cpy5, 0);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", 0);
-	printf("TST DST STR:	|%s|\n", tst_dst_cpy5);
-	printf("SYS DST STR:	|%s|\n", sys_dst_cpy5);
-
-// t7 -> NULL dst
-
-	char	src_cpy5[15] = "Hello World!\n";
-
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy5);
-	printf("TST DST STR:	|%s|\n", 0);
-	printf("SYS DST STR:	|%s|\n", 0);
-
-	_ft_strcpy(0, src_cpy5);
-	strcpy(0, src_cpy5);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy5);
-	printf("TST DST STR:	|%s|\n", 0);
-	printf("SYS DST STR:	|%s|\n", 0);
-
-// t8 -> long
-
-	char	src_cpy_6[50000];
-	char	tst_dst_cpy1[50000];
-	char	sys_dst_cpy1[50000];
-
-	for(int i = 0; i < 50000; i++)
+	for(int i = 0; i < 5000; i++)
 	{
 		src_cpy6[i] = (rand() % 94) + 32;
 	}
-	str2[49999] = '\0';
-
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_cpy6);
-	printf("TST DST STR:	|%s|\n", tst_dst_cpy6);
-	printf("SYS DST STR:	|%s|\n", sys_dst_cpy6);
+	src_cpy6[4999] = '\0';
 
 	tst_dst_cpy6 = _ft_strcpy(tst_dst_cpy6, src_cpy6);
 	sys_dst_cpy6 = strcpy(sys_dst_cpy6, src_cpy6);
 
-	printf("After:\n");
 	printf("    SRC STR:	|%s|\n", src_cpy6);
 	printf("TST DST STR:	|%s|\n", tst_dst_cpy6);
 	printf("SYS DST STR:	|%s|\n", sys_dst_cpy6);
 
-	printf("\n");
+printf("\n");
+
+/*-------------------------------------------------
+	ft_strncpy
+-------------------------------------------------*/
+
+	printf("------------------------------------\n");
+	printf("   FT_STRNCPY:\n");
+	printf("------------------------------------\n");
+
+printf("------------------------\n");
+printf("Test 2: Basic\n");
+printf("------------------------\n");
+
+	char	*src_ncpy1_5 = "AAAAAA";
+	char	*tst_dst_ncpy1 = malloc(13);
+	char	*sys_dst_ncpy1 = malloc(13);
+
+	tst_dst_ncpy1 = _ft_strcpy(tst_dst_ncpy1, "Hello World!");
+	sys_dst_ncpy1 = strcpy(sys_dst_ncpy1, "Hello World!");
+
+	tst_dst_ncpy1 = _ft_strncpy(tst_dst_ncpy1, src_ncpy1_5, 5);
+	sys_dst_ncpy1 = strncpy(sys_dst_ncpy1, src_ncpy1_5, 5);
+
+	printf("    SRC STR:	|%s|\n", src_ncpy1_5);
+	printf("TST DST STR:	|%s|\n", tst_dst_ncpy1);
+	printf("SYS DST STR:	|%s|\n", sys_dst_ncpy1);
+
+
+printf("------------------------\n");
+printf("Test 2: Long\n");
+printf("------------------------\n");
+
+	char	*src_ncpy2 = "Hello World!";
+	char	*tst_dst_ncpy2 = malloc(15);
+	char	*sys_dst_ncpy2 = malloc(15);
+
+	tst_dst_ncpy2 = _ft_strncpy(tst_dst_ncpy2, src_ncpy2, 15);
+	sys_dst_ncpy2 = strncpy(sys_dst_ncpy2, src_ncpy2, 15);
+
+	printf("    SRC STR:	|%s|\n", src_ncpy2);
+	printf("TST DST STR:	|%s|\n", tst_dst_ncpy2);
+	printf("SYS DST STR:	|%s|\n", sys_dst_ncpy2);
+
+printf("\n");
 
 
 /*-------------------------------------------------
 	ft_strcmp
 -------------------------------------------------*/
 
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 	printf("FT_STRCMP:\n");
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 
-// t1 -> basic
+printf("------------------------\n");
+printf("Test 1: Basic\n");
+printf("------------------------\n");
 
-	char	src_cpy1[13] = "Hello World!";
-	char	dst_cpy1[13] = "Hello Morld!";
+	char	*src_cmp1 = "Hello World!";
+	char	*dst_cmp1 = "Hello Morld!";
 
-	printf("SRC STR:	|%s|\n", src_cpy1);
-	printf("DST STR:	|%s|\n", dst_cpy1);
+	printf("SRC STR:	|%s|\n", src_cmp1);
+	printf("DST STR:	|%s|\n", dst_cmp1);
 
-	printf("tst cmp:	|%ld|\n", _ft_strcmp(dst_cpy1, src_cpy1));
-	printf("sys cmp:	|%ld|\n", strcmp(dst_cpy1, src_cpy1));
+	printf("tst cmp:	|%d|\n", _ft_strcmp(dst_cmp1, src_cmp1));
+	printf("sys cmp:	|%d|\n", strcmp(dst_cmp1, src_cmp1));
 
-// t2 -> longer src
-	char	src_cpy2[15] = "Hello World!!!";
+printf("------------------------\n");
+printf("Test 2: Longer Src\n");
+printf("------------------------\n");
 
-	printf("SRC STR:	|%s|\n", src_cpy2);
-	printf("DST STR:	|%s|\n", dst_cpy1);
+	char	*long_cmp = "Hello World!!!";
 
-	printf("tst cmp:	|%ld|\n", _ft_strcmp(dst_cpy1, src_cpy2));
-	printf("sys cmp:	|%ld|\n", strcmp(dst_cpy1, src_cpy2));
+	printf("SRC STR:	|%s|\n", long_cmp);
+	printf("DST STR:	|%s|\n", dst_cmp1);
 
-// t3 -> longer dst
+	printf("tst cmp:	|%d|\n", _ft_strcmp(dst_cmp1, long_cmp));
+	printf("sys cmp:	|%d|\n", strcmp(dst_cmp1, long_cmp));
 
-	printf("SRC STR:	|%s|\n", dst_cpy1);
-	printf("DST STR:	|%s|\n", src_cpy2);
+printf("------------------------\n");
+printf("Test 3: Longer Dst\n");
+printf("------------------------\n");
 
-	printf("tst cmp:	|%ld|\n", _ft_strcmp(src_cpy2, dst_cpy1));
-	printf("sys cmp:	|%ld|\n", strcmp(src_cpy2, dst_cpy1));
+	printf("SRC STR:	|%s|\n", dst_cmp1);
+	printf("DST STR:	|%s|\n", long_cmp);
 
-// t4 -> empty src
+	printf("tst cmp:	|%d|\n", _ft_strcmp(long_cmp, dst_cmp1));
+	printf("sys cmp:	|%d|\n", strcmp(long_cmp, dst_cmp1));
+
+printf("------------------------\n");
+printf("Test 4: Empty Src\n");
+printf("------------------------\n");
 
 	printf("SRC STR:	|%s|\n", "");
-	printf("DST STR:	|%s|\n", src_cpy1);
+	printf("DST STR:	|%s|\n", src_cmp1);
 
-	printf("tst cmp:	|%ld|\n", _ft_strcmp(src_cpy1, ""));
-	printf("sys cmp:	|%ld|\n", strcmp(src_cpy1, ""));
+	printf("tst cmp:	|%d|\n", _ft_strcmp(src_cmp1, ""));
+	printf("sys cmp:	|%d|\n", strcmp(src_cmp1, ""));
 
-// t5 -> empty dst
+printf("------------------------\n");
+printf("Test 5: Empty Dst\n");
+printf("------------------------\n");
 
-	printf("SRC STR:	|%s|\n", src_cpy1);
+	printf("SRC STR:	|%s|\n", src_cmp1);
 	printf("DST STR:	|%s|\n", "");
 
-	printf("tst cmp:	|%ld|\n", _ft_strcmp("", src_cpy1));
-	printf("sys cmp:	|%ld|\n", strcmp("", src_cpy1));
+	printf("tst cmp:	|%d|\n", _ft_strcmp("", src_cmp1));
+	printf("sys cmp:	|%d|\n", strcmp("", src_cmp1));
 
-// t6 -> NULL src
+printf("------------------------\n");
+printf("Test 6: NULL Src\n");
+printf("------------------------\n");
 
-	printf("SRC STR:	|%s|\n", 0);
-	printf("DST STR:	|%s|\n", src_cpy1);
+//	printf("SRC STR:	|%s|\n", 0);
+//	printf("DST STR:	|%s|\n", src_cmp1);
+//
+//	printf("tst cmp:	|%ld|\n", _ft_strcmp(src_cmp1, 0));
+//	printf("sys cmp:	|%ld|\n", strcmp(src_cmp1, 0));
 
-	printf("tst cmp:	|%ld|\n", _ft_strcmp(src_cpy1, 0));
-	printf("sys cmp:	|%ld|\n", strcmp(src_cpy1, 0));
+printf("------------------------\n");
+printf("Test 7: NULL Dst\n");
+printf("------------------------\n");
 
-// t7 -> NULL dst
+//	printf("SRC STR:	|%s|\n", src_cmp1);
+//	printf("DST STR:	|%s|\n", 0);
+//
+//	printf("tst cmp:	|%ld|\n", _ft_strcmp(0, src_cmp1));
+//	printf("sys cmp:	|%ld|\n", strcmp(0, src_cmp1));
 
-	printf("SRC STR:	|%s|\n", src_cpy1);
-	printf("DST STR:	|%s|\n", 0);
+printf("------------------------\n");
+printf("Test 8: Long\n");
+printf("------------------------\n");
 
-	printf("tst cmp:	|%ld|\n", _ft_strcmp(0, src_cpy_1));
-	printf("sys cmp:	|%ld|\n", strcmp(0, src_cpy1));
+//	char	*src_cmp6 = malloc(5000);
+//	char	*dst_cmp6 = malloc(5000);
+//
+//	for(int i = 0; i < 5000; i++)
+//	{
+//		src_cmp6[i] = (rand() % 94) + 32;
+//		if (i < 5000)
+//			dst_cmp6[i] = src_cmp6[i];
+//		else
+//			dst_cmp6[i] = '*';
+//	}
+//	src_cmp6[4999] = '\0';
+//	dst_cmp6[4999] = '\0';
+//
+//	printf("SRC STR:	|%s|\n", src_cmp6);
+//	printf("DST STR:	|%s|\n", dst_cmp6);
+//
+//	printf("tst cmp:	|%ld|\n", _ft_strcmp(dst_cmp6, src_cmp6));
+//	printf("sys cmp:	|%ld|\n", strcmp(dst_cmp6, src_cmp6));
 
-// t8 -> long
-
-	char	src_cpy_6[10000];
-	char	dst_cpy6[10000];
-
-	for(int i = 0; i < 10000; i++)
-	{
-		src_cpy6[i] = (rand() % 94) + 32;
-		if (i < 10000)
-			dst_cpy6[i] = src_cpy6[i];
-		else
-			dst_cpy6[i] = '*';
-	}
-	str2[9999] = '\0';
-
-	printf("SRC STR:	|%s|\n", src_cpy6);
-	printf("DST STR:	|%s|\n", dst_cpy6);
-
-	printf("tst cmp:	|%ld|\n", _ft_strcmp(dst_cpy6, src_cpy6));
-	printf("sys cmp:	|%ld|\n", strcmp(dst_cpy6, src_cpy6));
-
-	printf("\n");
-
+printf("\n");
 
 /*-------------------------------------------------
 	ft_strdup
 -------------------------------------------------*/
 
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 	printf("   FT_STRDUP:\n");
-	printf("------------------------------------\n\n");
+	printf("------------------------------------\n");
 
-// t1 -> basic
+printf("------------------------\n");
+printf("Test 1: Basic\n");
+printf("------------------------\n");
 
-	char	src_dup1[13] = "Hello World!\n";
-	char	tst_dst_dup1[13];
-	char	sys_dst_dup1[13];
+	char	*src_dup1 = "Hello World!";
+	char	*tst_dst_dup1;
+	char	*sys_dst_dup1;
 
-	printf("Before:\n");
+	tst_dst_dup1 = _ft_strdup(src_dup1);
+	sys_dst_dup1 = strdup(src_dup1);
+
 	printf("    SRC STR:	|%s|\n", src_dup1);
 	printf("TST DST STR:	|%s|\n", tst_dst_dup1);
 	printf("SYS DST STR:	|%s|\n", sys_dst_dup1);
 
-	tst_dst_dup1 = _ft_strdup(tst_dst_dup1, src_dup1);
-	sys_dst_dup1 = strdup(sys_dst_dup1, src_dup1);
+printf("------------------------\n");
+printf("Test 2: Empty Src\n");
+printf("------------------------\n");
 
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_dup1);
-	printf("TST DST STR:	|%s|\n", tst_dst_dup1);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup1);
+	char	*sys_dst_dup4;
+	char	*tst_dst_dup4;
 
-// t2 -> longer src
+	tst_dst_dup4 = _ft_strdup("");
+	sys_dst_dup4 = strdup("");
 
-	char	src_dup2[13] = "Hello World!\n";
-	char	tst_dst_dup2[11];
-	char	sys_dst_dup2[11];
-
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_dup2);
-	printf("TST DST STR:	|%s|\n", tst_dst_dup2);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup2);
-
-	tst_dst_dup2 = _ft_strdup(tst_dst_dup2, src_dup2);
-	sys_dst_dup2 = strdup(sys_dst_dup2, src_dup2);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_dup2);
-	printf("TST DST STR:	|%s|\n", tst_dst_dup2);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup2);
-
-// t3 -> longer dst
-
-	char	src_dup3[13] = "Hello World!\n";
-	char	tst_dst_dup3[15];
-	char	sys_dst_dup3[15];
-
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_dup3);
-	printf("TST DST STR:	|%s|\n", tst_dst_dup3);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup3);
-
-	tst_dst_dup3 = _ft_strdup(tst_dst_dup3, src_dup3);
-	sys_dst_dup3 = strdup(sys_dst_dup3, src_dup3);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_dup3);
-	printf("TST DST STR:	|%s|\n", tst_dst_dup3);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup3);
-
-// t4 -> empty src
-
-	char	sys_dst_dup4[13];
-	char	tst_dst_dup4[13];
-
-	printf("Before:\n");
 	printf("    SRC STR:	|%s|\n", "");
 	printf("TST DST STR:	|%s|\n", tst_dst_dup4);
 	printf("SYS DST STR:	|%s|\n", sys_dst_dup4);
 
-	tst_dst_dup4 = _ft_strdup(tst_dst_dup4, "");
-	sys_dst_dup4 = strdup(sys_dst_dup4, "");
+printf("------------------------\n");
+printf("Test 3: NULL Src\n");
+printf("------------------------\n");
 
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", "");
-	printf("TST DST STR:	|%s|\n", tst_dst_dup4);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup4);
+//	char	*sys_dst_dup5;
+//	char	*tst_dst_dup5;
+//
+//	tst_dst_dup5 = _ft_strdup(0);
+//	sys_dst_dup5 = strdup(0);
+//
+//	printf("    SRC STR:	|%s|\n", 0);
+//	printf("TST DST STR:	|%s|\n", tst_dst_dup5);
+//	printf("SYS DST STR:	|%s|\n", sys_dst_dup5);
 
-// t5 -> empty dst
+printf("------------------------\n");
+printf("Test 4: Long\n");
+printf("------------------------\n");
 
-	char	src_dup4[13] = "Hello World!\n";
+	char	*src_dup6 = malloc (5000);
+	char	*tst_dst_dup6;
+	char	*sys_dst_dup6;
 
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_dup4);
-	printf("TST DST STR:	|%s|\n", "");
-	printf("SYS DST STR:	|%s|\n", "");
-
-	_ft_strdup("", src_dup4);
-	strdup("", src_dup4);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_dup4);
-	printf("TST DST STR:	|%s|\n", "");
-	printf("SYS DST STR:	|%s|\n", "");
-
-// t6 -> NULL src
-
-	char	sys_dst_dup5[15];
-	char	tst_dst_dup5[15];
-
-	printf("Before:\n");
-
-	tst_dst_dup5 = _ft_strdup(tst_dst_dup5, 0);
-	sys_dst_dup5 = strdup(sys_dst_dup5, 0);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", 0);
-	printf("TST DST STR:	|%s|\n", tst_dst_dup5);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup5);
-
-// t7 -> NULL dst
-
-	char	src_dup5[15] = "Hello World!\n";
-
-	printf("Before:\n");
-	printf("    SRC STR:	|%s|\n", src_dup5);
-	printf("TST DST STR:	|%s|\n", 0);
-	printf("SYS DST STR:	|%s|\n", 0);
-
-	_ft_strdup(0, src_dup5);
-	strdup(0, src_dup5);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_dup5);
-	printf("TST DST STR:	|%s|\n", 0);
-	printf("SYS DST STR:	|%s|\n", 0);
-
-// t8 -> long
-
-	char	src_dup_6[50000];
-	char	tst_dst_dup1[50000];
-	char	sys_dst_dup1[50000];
-
-	for(int i = 0; i < 50000; i++)
+	for(int i = 0; i < 5000; i++)
 	{
 		src_dup6[i] = (rand() % 94) + 32;
 	}
-	str2[49999] = '\0';
+	src_dup6[4999] = '\0';
 
-	printf("Before:\n");
+	tst_dst_dup6 = _ft_strdup(src_dup6);
+	sys_dst_dup6 = strdup(src_dup6);
+
 	printf("    SRC STR:	|%s|\n", src_dup6);
 	printf("TST DST STR:	|%s|\n", tst_dst_dup6);
 	printf("SYS DST STR:	|%s|\n", sys_dst_dup6);
 
-	tst_dst_dup6 = _ft_strdup(tst_dst_dup6, src_dup6);
-	sys_dst_dup6 = strdup(sys_dst_dup6, src_dup6);
-
-	printf("After:\n");
-	printf("    SRC STR:	|%s|\n", src_dup6);
-	printf("TST DST STR:	|%s|\n", tst_dst_dup6);
-	printf("SYS DST STR:	|%s|\n", sys_dst_dup6);
-
-	printf("\n");
-
+printf("\n");
 
 /*
 	int fd_tst;
@@ -591,7 +555,7 @@ int main()
 	close(fd_sys);
 	close(fd_tst);
 
-	/*_ft_strdup---------------*/
+	_ft_strdup---------------
 
 	char *strdup_tst;
 	char *strdup_sys;

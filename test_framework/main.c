@@ -71,11 +71,11 @@ int				main(void)
 	load_tests_ft_isalnum(&(funcs[1]));
 	load_tests_ft_isalpha(&(funcs[2]));
 	load_tests_ft_isdigit(&(funcs[3]));
-	load_tests_ft_strdup(&(funcs[4]));
-//	load_tests_ft_bzero(&(funcs[0]));
-//	load_tests_ft_strcpy(&(funcs[0]));
-//	load_tests_ft_strcmp(&(funcs[1]));
+	load_tests_ft_strcmp(&(funcs[4]));
+	load_tests_ft_strdup(&(funcs[5]));
+	load_tests_ft_strcpy(&(funcs[6]));
 //	load_tests_ft_strncpy(&(funcs[2]));
+//	load_tests_ft_bzero(&(funcs[0]));
 //	load_tests_ft_read(&(funcs[4]));
 //	load_tests_ft_write(&(funcs[5]));
 
@@ -86,7 +86,7 @@ int				main(void)
 		printf("--------------------------------------\n");
 		for (int j = 0 ; j < funcs[i].n_tests ; j++)
 		{
-			printf("Test %d:	%s [%s]", j + 1, funcs[i].tests[j].test_name,
+			printf("Test%2d: %-20s [%s]", j + 1, funcs[i].tests[j].test_name,
 				run_test(funcs[i].tests[j].test_func));
 			printf("\n");
 		}

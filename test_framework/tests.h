@@ -1,8 +1,8 @@
 #ifndef TESTS_H
 # define TESTS_H
 
-# define N_FUNCS 5
-# define MAX_TESTS 5
+# define N_FUNCS 7
+# define MAX_TESTS 10
 
 struct s_test_wrap;
 
@@ -67,6 +67,9 @@ int		ft_strcmp_test_2(void);
 int		ft_strcmp_test_3(void);
 int		ft_strcmp_test_4(void);
 int		ft_strcmp_test_5(void);
+int		ft_strcmp_test_6(void);
+int		ft_strcmp_test_7(void);
+int		ft_strcmp_test_8(void);
 // }}}
 
 void	load_tests_ft_strncpy(struct s_test_wrap *func);

@@ -59,11 +59,12 @@ int		ft_strdup_test_4(void)
 {
 	int		ret;
 	size_t	size;
-	char	*src;
 	char	*tst;
 	char	*sys;
 
 	size = (rand() % 10000) + 10000;
+
+	char	*src = malloc(size);
 
 	for (int i = 0; i < size; i++)
 	{
@@ -75,6 +76,8 @@ int		ft_strdup_test_4(void)
 	sys = strdup(src);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
+	if (src)
+		free(src);
 	if (tst)
 		free(tst);
 	if (sys)

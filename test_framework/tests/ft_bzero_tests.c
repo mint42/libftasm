@@ -17,7 +17,6 @@ int		ft_bzero_test_1(void)
 	return (ret);
 }
 
-
 int		ft_bzero_test_2(void)
 {
 	int		ret;
@@ -78,14 +77,49 @@ int		ft_bzero_test_5(void)
 	return (1);
 }
 
+int		ft_bzero_test_6(void)
+{
+	int		ret;
+	int		size;
+
+	size = (rand() % 10000) + 10000;
+
+	char	*src = malloc(size);
+	char	*tst = malloc(size);
+	char	*sys = malloc(size);
+
+	for (int i = 0; i < size; i++)
+	{
+		src[i] = (rand() % 94) + 32;
+		tst[i] = src[i];
+		sys[i] = src[i];
+	}
+	src[size - 1] = '\0';
+	tst[size - 1] = '\0';
+	sys[size - 1] = '\0';
+
+	tst = _ft_strcpy(tst, src);
+	sys = strcpy(sys, src);
+
+	ret = (strcmp(tst, sys)) ? 1 : 0;
+	if (src)
+		free(src);
+	if (tst)
+		free(tst);
+	if (sys)
+		free(sys);
+	return (ret);
+}
+
 void	load_tests_ft_bzero(struct s_test_wrap *func)
 {
 	func->name = "FT_BZERO";
-	func->n_tests = 5;
+	func->n_tests = 6;
 	zero_tests(func->tests);
 	load_test(&((func->tests)[0]), "Basic", ft_bzero_test_1);
 	load_test(&((func->tests)[1]), "Malloc", ft_bzero_test_2);
 	load_test(&((func->tests)[2]), "Malloc Overwrite", ft_bzero_test_3);
 	load_test(&((func->tests)[3]), "Empty", ft_bzero_test_4);
 	load_test(&((func->tests)[4]), "NULL", ft_bzero_test_5);
+	load_test(&((func->tests)[5]), "Long", ft_bzero_test_6);
 }

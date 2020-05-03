@@ -46,7 +46,7 @@ int		ft_strlen_test_4(void)
 
 	size = (rand() % 10000) + 10000;
 
-	char	str[size];
+	char	*str = malloc(size);
 
 	for (int i = 0; i < size; i++)
 	{
@@ -56,6 +56,8 @@ int		ft_strlen_test_4(void)
 
 	tst = _ft_strlen(str);
 	sys = strlen(str);
+	if (str)
+		free(str);
 	return ((tst == sys) ? 0 : 1);
 }
 

@@ -13,6 +13,7 @@ int		ft_bzero_test_2(void);
 int		ft_bzero_test_3(void);
 int		ft_bzero_test_4(void);
 int		ft_bzero_test_5(void);
+int		ft_bzero_test_6(void);
 // }}}
 
 void	load_tests_ft_isascii(struct s_test_wrap *func);
@@ -71,6 +72,7 @@ int		ft_strcpy_test_6(void);
 int		ft_strcpy_test_7(void);
 int		ft_strcpy_test_8(void);
 int		ft_strcpy_test_9(void);
+int		ft_strcpy_test_10(void);
 // }}}
 
 void	load_tests_ft_strncpy(struct s_test_wrap *func);
@@ -84,6 +86,7 @@ int		ft_strncpy_test_6(void);
 int		ft_strncpy_test_7(void);
 int		ft_strncpy_test_8(void);
 int		ft_strncpy_test_9(void);
+int		ft_strncpy_test_10(void);
 // }}}
 
 void	load_tests_ft_strcmp(struct s_test_wrap *func);
@@ -96,6 +99,8 @@ int		ft_strcmp_test_5(void);
 int		ft_strcmp_test_6(void);
 int		ft_strcmp_test_7(void);
 int		ft_strcmp_test_8(void);
+int		ft_strcmp_test_9(void);
+int		ft_strcmp_test_10(void);
 // }}}
 
 void	load_tests_ft_strdup(struct s_test_wrap *func);

@@ -67,15 +67,16 @@ int				main(void)
 {
 	struct s_test_wrap	funcs[N_FUNCS];
 
-	load_tests_ft_isascii(&(funcs[0]));
-	load_tests_ft_isalnum(&(funcs[1]));
-	load_tests_ft_isalpha(&(funcs[2]));
-	load_tests_ft_isdigit(&(funcs[3]));
-	load_tests_ft_strcmp(&(funcs[4]));
-	load_tests_ft_strdup(&(funcs[5]));
+	load_tests_ft_bzero(&(funcs[0]));
+	load_tests_ft_isascii(&(funcs[1]));
+	load_tests_ft_isalnum(&(funcs[2]));
+	load_tests_ft_isalpha(&(funcs[3]));
+	load_tests_ft_isdigit(&(funcs[4]));
+	load_tests_ft_strlen(&(funcs[5]));
 	load_tests_ft_strcpy(&(funcs[6]));
-//	load_tests_ft_strncpy(&(funcs[2]));
-//	load_tests_ft_bzero(&(funcs[0]));
+	load_tests_ft_strncpy(&(funcs[7]));
+	load_tests_ft_strcmp(&(funcs[8]));
+	load_tests_ft_strdup(&(funcs[9]));
 //	load_tests_ft_read(&(funcs[4]));
 //	load_tests_ft_write(&(funcs[5]));
 

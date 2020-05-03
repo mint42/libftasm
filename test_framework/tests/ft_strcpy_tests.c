@@ -99,6 +99,8 @@ int		ft_strcpy_test_6(void)
 
 	_ft_strcpy("", src);
 	strcpy("", src);
+
+	return (1);
 }
 
 int		ft_strcpy_test_7(void)
@@ -126,6 +128,7 @@ int		ft_strcpy_test_8(void)
 
 int		ft_strcpy_test_9(void)
 {
+	int		ret;
 	int		size;
 
 	size = (rand() % 10000) + 10000;
@@ -142,6 +145,15 @@ int		ft_strcpy_test_9(void)
 
 	tst = _ft_strcpy(tst, src);
 	sys = strcpy(sys, src);
+
+	ret = (strcmp(tst, sys)) ? 1 : 0;
+	if (src)
+		free(src);
+	if (tst)
+		free(tst);
+	if (sys)
+		free(sys);
+	return (ret);
 }
 
 void	load_tests_ft_strcpy(struct s_test_wrap *func)

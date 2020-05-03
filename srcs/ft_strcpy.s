@@ -13,17 +13,15 @@ _ft_strcpy:
 			push	rbp
 			mov		rbp, rsp
 
-			push	rdi				; save (dst)
-			push	rsi				; save (src)
-			mov		rdi, rsi		; move (src) to parameter 1
-			call	_ft_strlen		; (src);
-			pop		rsi				; pop saved (src)
-			pop		rdi				; pop saved (dst)
+			mov		rax, rdi		; set (ret) to head of (dst)
 
-			mov		rdx, rax		; move (len) to parameter 3
-			inc 	rdx				; ++(len) for null term
+_loop:
+			cmp		byte [rsi], 0x0	; if (!*src)
+			je		_end			;	break ;
+			movsb					; (*dst)++ = (*src)++
+			jmp		_loop			; loop
 
-			call	_ft_strncpy		; (dst, src, len);
-
+_end:
+			mov		byte [rdi], 0x0
 			pop		rbp
 			ret

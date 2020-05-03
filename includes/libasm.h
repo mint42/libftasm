@@ -1,6 +1,9 @@
 #ifndef LIBASM_H
 # define LIBASM_H
 
+#include <stddef.h>
+#include <sys/types.h>
+
 void		_ft_bzero(void *s, size_t len);
 int 		_ft_isalnum(int c);
 int 		_ft_isascii(int c);

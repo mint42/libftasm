@@ -16,13 +16,13 @@ _ft_strncpy:
 			mov		rcx, rdx		; (i) = (len)
 
 _loop:
-			cmp		byte [rsi], 0	; if (!*src)
+			cmp		byte [rsi], 0x0	; if (!*src)
 			je		_break			;	break ;
 			movsb					; (*dst)++ = (*src)++
 			loop	_loop			; if (--(i) != 0) -> loop
 
 _break:
-			cmp		rcx, 0			; if (len)
+			cmp		rcx, 0x0		; if (len)
 			jne		_call_ft_bzero	; 	call bzero setup
 			jmp		_end			; else -> _end
 

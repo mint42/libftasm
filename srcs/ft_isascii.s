@@ -24,7 +24,7 @@ _ft_isascii:
 
 	xor		rax, rax	; set ret = 0
 
-	cmp		rdi, 0		; if (c < 0)
+	cmp		rdi, 0x0	; if (c < 0)
 	jl		_end		;	goto _end
 	cmp		rdi, 127	; if (c > 127)
 	jg		_end		;	goto _end

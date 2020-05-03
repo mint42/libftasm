@@ -10,20 +10,14 @@ _ft_strcmp:
 			push	rbp
 			mov		rbp, rsp
 
-			cmp		byte [rdi], 0	; if (*s1 == 0)
-			je		_end			; goto _end
-			cmp		byte [rsi], 0	; if (*s2 == 0)
-			je		_end			; goto _end
-			inc		rdi				; ++s1
-			inc		rsi				; ++s2
-
 _loop:								; loop until not equal/end
-			cmp		byte [rdi], 0	; if (*s1 == 0)
-			je		_dec			; 	goto _dec
-			cmp		byte [rsi], 0	; if (*s2 == 0)
-			je		_dec			;	goto _dec
-			cmpsb					; if ((*s1)++ == (*s2)++)
-			je		_loop			; 	goto _loop
+			cmp		byte [rdi], 0x0	; if (*s1 == 0)
+			je		_end			; 	goto _end
+			cmp		byte [rsi], 0x0	; if (*s2 == 0)
+			je		_end			;	goto _end
+			cmpsb					; if ((*s1)++ != (*s2)++)
+			jne		_dec			; 	goto _dec
+			jmp		_loop			; else -> loop
 
 _dec:
 			dec		rdi				; --s1

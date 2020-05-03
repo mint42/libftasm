@@ -25,7 +25,7 @@ _ft_bzero:
 	mov		rcx, rsi		; i = len
 
 _loop:
-	mov		byte [rdi], 0	; (*dst)++ = 0;
+	mov		byte [rdi], 0x0	; (*dst)++ = 0;
 	loop	_loop			; if (--i != 0) -> loop
 
 _end:

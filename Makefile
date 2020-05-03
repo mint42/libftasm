@@ -6,11 +6,12 @@
 #    By: rreedy <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 11:54:37 by rreedy            #+#    #+#              #
-#    Updated: 2020/05/02 04:07:59 by mint             ###   ########.fr        #
+#    Updated: 2020/05/02 17:15:09 by mint             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 include config.mk
+include test_framework/config.mk
 
 SRCS := $(wildcard $(SRC_DIR)/*.s)
 OBJS := $(patsubst %.s,%.o,$(SRCS))
@@ -33,8 +34,8 @@ start:
 stop:
 	@ printf "$(FINISH_COLOR) done$(CLEAR_COLOR)\n"
 
-$(TEST_NAME): $(NAME) main.c
-	$(CC) $(CFLAGS) main.c -o $(TEST_NAME) $(LDFLAGS)
+$(TEST_NAME): $(NAME) $(TEST_FRAMEWORK_SRCS)
+	$(CC) $(CFLAGS) $(TEST_FRAMEWORK_INCLUDES) $(TEST_FRAMEWORK_SRCS) -o $(TEST_NAME) $(LDFLAGS)
 	touch test.txt system.txt
 
 %.o: %.s

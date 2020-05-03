@@ -26,8 +26,8 @@ _ft_isalnum:
 	mov		rbp, rsp
 
 	call	_ft_isalpha	; (c);
-	cmp		rax, 0		; if (ret == 0)
-	je		_end		;	goto _end
+	cmp		rax, 0x0	; if (ret != 0)
+	jne		_end		;	goto _end
 	call	_ft_isdigit ; (c);
 
 _end:

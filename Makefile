@@ -6,7 +6,7 @@
 #    By: rreedy <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 11:54:37 by rreedy            #+#    #+#              #
-#    Updated: 2020/05/02 17:15:09 by mint             ###   ########.fr        #
+#    Updated: 2020/05/02 23:25:35 by mint             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ stop:
 
 $(TEST_NAME): $(NAME) $(TEST_FRAMEWORK_SRCS)
 	$(CC) $(CFLAGS) $(TEST_FRAMEWORK_INCLUDES) $(TEST_FRAMEWORK_SRCS) -o $(TEST_NAME) $(LDFLAGS)
-	touch test.txt system.txt
 
 %.o: %.s
 	@- nasm -f elf64 $<
@@ -54,7 +53,6 @@ fclean: clean
 			printf "$(DELETE_COLOR)Removing $(NAME_COLOR)$(NAME)\n"; \
 	   fi;
 	@- $(RM) $(NAME)
-	@- $(RM) -r main.o $(TEST_NAME)
-	@- $(RM) test.txt system.txt
+	@- $(RM) $(TEST_NAME)
 
 re: fclean all

@@ -6,7 +6,7 @@
 #    By: rreedy <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/16 11:54:37 by rreedy            #+#    #+#              #
-#    Updated: 2020/05/02 23:25:35 by mint             ###   ########.fr        #
+#    Updated: 2020/05/03 06:00:19 by mint             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ stop:
 
 $(TEST_NAME): $(NAME) $(TEST_FRAMEWORK_SRCS)
 	$(CC) $(CFLAGS) $(TEST_FRAMEWORK_INCLUDES) $(TEST_FRAMEWORK_SRCS) -o $(TEST_NAME) $(LDFLAGS)
+	touch test_sys_read.txt test_tst_read.txt test_sys_write.txt test_tst_write.txt
 
 %.o: %.s
 	@- nasm -f elf64 $<
@@ -54,5 +55,6 @@ fclean: clean
 	   fi;
 	@- $(RM) $(NAME)
 	@- $(RM) $(TEST_NAME)
+	@- $(RM) test_sys_read.txt test_tst_read.txt test_sys_write.txt test_tst_write.txt
 
 re: fclean all

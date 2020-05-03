@@ -4,20 +4,24 @@
 
 global	_ft_write
 
+extern	_ft_set_errno
+
 section .text
 
 _ft_write:
 		push	rbp
 		mov		rbp, rsp
 	
-		push	rdi			; save (fd)
-		push	rsi			; save (buf)
-		push	rdx			; save (count)
-		mov		rax, 0x01	; "load" syscall write()
-		syscall				; call write()
-		push	rdx			; pop saved (count)
-		push	rsi			; pop saved (buf)
-		push	rdi			; pop saved (fd)
-	
+		mov		rax, 0x1		; "load" syscall write()
+		syscall					; call write()
+
+		cmp		rax, 0x0		; if (ret < 0)
+		jl		_call_errno		;	 call errno setter
+		jmp		_end			; else goto _end
+
+_call_errno:
+		call	_ft_set_errno	; (errno);
+
+_end:
 		pop		rbp
 		ret

@@ -8,8 +8,6 @@ To set up this project, run `git clone https://github.com/mint42/libftasm` in th
 
 ## Functions
 
-New Criteria
-
 - read
 - write
 - strlen
@@ -17,23 +15,11 @@ New Criteria
 - strcmp
 - strdup
 
-leftovers from old project
-
 - bzero
-- strcat
 - isalpha
 - isdigit
 - isalnum
 - isascii
-- isprint
-- toupper
-- tolower
-- puts
-- strlen
-- memset
-- memcpy
-- strdup
-- cat
 
 ## References 
 
@@ -47,10 +33,8 @@ leftovers from old project
 
 ### Significant Man Pages
 - syscalls
-- syscall
 - errno
-- 
-
+- nasm
 
 ## Author
 

@@ -77,8 +77,8 @@ int				main(void)
 	load_tests_ft_strncpy(&(funcs[7]));
 	load_tests_ft_strcmp(&(funcs[8]));
 	load_tests_ft_strdup(&(funcs[9]));
-//	load_tests_ft_read(&(funcs[4]));
-//	load_tests_ft_write(&(funcs[5]));
+	load_tests_ft_read(&(funcs[10]));
+	load_tests_ft_write(&(funcs[11]));
 
 	for (int i = 0 ; i < N_FUNCS ; i++)
 	{

@@ -16,8 +16,8 @@ _ft_strdup:
 
 			push	rdi				; save (s)
 			call	_ft_strlen		; (s);
-									;; dont need to pop (s) because it will
-									;; need pushed again for malloc() call
+									; dont need to pop (s) because it will
+									; need pushed again for malloc() call
 
 			mov		rdi, rax		; move (len) to parameter 1
 			inc		rdi				; ++(len) for null term

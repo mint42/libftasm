@@ -1,7 +1,7 @@
 #ifndef TESTS_H
 # define TESTS_H
 
-# define N_FUNCS 10
+# define N_FUNCS 12
 # define MAX_TESTS 10
 
 struct s_test_wrap;
@@ -119,6 +119,10 @@ int		ft_read_test_2(void);
 int		ft_read_test_3(void);
 int		ft_read_test_4(void);
 int		ft_read_test_5(void);
+int		ft_read_test_6(void);
+int		ft_read_test_7(void);
+int		ft_read_test_8(void);
+int		ft_read_test_9(void);
 // }}}
 
 void	load_tests_ft_write(struct s_test_wrap *func);
@@ -128,6 +132,10 @@ int		ft_write_test_2(void);
 int		ft_write_test_3(void);
 int		ft_write_test_4(void);
 int		ft_write_test_5(void);
+int		ft_write_test_6(void);
+int		ft_write_test_7(void);
+int		ft_write_test_8(void);
+int		ft_write_test_9(void);
 // }}}
 
 #endif

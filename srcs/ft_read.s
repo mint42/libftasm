@@ -4,7 +4,7 @@
 
 global	_ft_read
 
-extern	_ft_error
+extern	_ft_set_errno
 
 section	.text
 
@@ -12,14 +12,16 @@ _ft_read:
 		push	rbp
 		mov		rbp, rsp
 
-		push	rdi			; save (fd)
-		push	rsi			; save (buf)
-		push	rdx			; save (count)
-		mov		rax, 0x00	; "load" syscall read()
-		syscall				; call read()
-		push	rdx			; pop saved (count)
-		push	rsi			; pop saved (buf)
-		push	rdi			; pop saved (fd)
+		mov		rax, 0x0		; "load" syscall read()
+		syscall					; call read()
 
+		cmp		rax, 0x0		; if (ret < 0)
+		jl		_call_errno		;	 call errno setter
+		jmp		_end			; else goto _end
+
+_call_errno:
+		call	_ft_set_errno	; (errno);
+
+_end:
 		pop		rbp
 		ret

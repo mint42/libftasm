@@ -6,17 +6,16 @@ global	_ft_write
 
 extern	_ft_set_errno
 
-section .text
+section	.text
 
 _ft_write:
 		push	rbp
 		mov		rbp, rsp
-	
+
 		mov		rax, 0x2000004	; "load" syscall write()
 		syscall					; call write()
 
-		cmp		rax, 0x0		; if (ret < 0)
-		jc		_call_errno		;	 call errno setter
+		jc		_call_errno		; if carry flag set, call errno setter
 		jmp		_end			; else goto _end
 
 _call_errno:

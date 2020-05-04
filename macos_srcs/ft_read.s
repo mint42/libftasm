@@ -15,8 +15,7 @@ _ft_read:
 		mov		rax, 0x2000003	; "load" syscall read()
 		syscall					; call read()
 
-		cmp		rax, 0x0		; if (ret < 0)
-		jl		_call_errno		;	 call errno setter
+		jc		_call_errno		; if carry flag set, call errno setter
 		jmp		_end			; else goto _end
 
 _call_errno:

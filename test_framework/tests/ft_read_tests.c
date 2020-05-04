@@ -7,29 +7,6 @@
 #include <errno.h>
 #include <unistd.h>
 
-/*
-**		STDIN
-**
-** int		ft_read_test(void)
-** {
-** 	int		tst;
-** 	int		sys;
-** 	int		red;
-** 	char	buf[255];
-** 
-** 	printf("read from STDIN:\n ");
-** 	while((red = _ft_read(STDIN_FD, buf, 255)) > 0)
-** 	{
-** 		tst = tst + red;
-** 		printf("buf: %s\n", buf);
-** 	}
-** 	if (red == -1)
-** 		return (1);
-** 	printf("%d bytes read\n", tst);
-** 	return (0);
-** }
-*/
-
 int		ft_read_test_1(void)
 {
 	int		fd_tst_src;

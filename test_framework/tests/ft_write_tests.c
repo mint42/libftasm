@@ -7,29 +7,6 @@
 #include <errno.h>
 #include <unistd.h>
 
-/*
-**		STDIN
-**
-** int		ft_write_test(void)
-** {
-** 	int		tst;
-** 	int		sys;
-** 	int		bytes;
-** 	char	buf[255];
-** 
-** 	printf("write from STDIN:\n ");
-** 	while((bytes = _ft_write(STDIN_FD, buf, 255)) > 0)
-** 	{
-** 		tst = tst + bytes;
-** 		printf("buf: %s\n", buf);
-** 	}
-** 	if (bytes == -1)
-** 		return (1);
-** 	printf("%d bytes write\n", tst);
-** 	return (0);
-** }
-*/
-
 int		ft_write_test_1(void)
 {
 	char	buf[255];

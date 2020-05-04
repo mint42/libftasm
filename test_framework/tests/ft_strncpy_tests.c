@@ -95,16 +95,6 @@ int		ft_strncpy_test_5(void)
 
 int		ft_strncpy_test_6(void)
 {
-	char	*src = "Hello";
-
-	ft_strncpy("", src, 6);
-	strncpy("", src, 6);
-
-	return (1);
-}
-
-int		ft_strncpy_test_7(void)
-{
 	int		ret;
 	char	*sys = malloc(13);
 	char	*tst = malloc(13);
@@ -120,7 +110,7 @@ int		ft_strncpy_test_7(void)
 	return (ret);
 }
 
-int		ft_strncpy_test_8(void)
+int		ft_strncpy_test_7(void)
 {
 	ft_strncpy(NULL, "Hello World!", 1);
 	strncpy(NULL, "Hello World!", 1);
@@ -128,7 +118,7 @@ int		ft_strncpy_test_8(void)
 	return (1);
 }
 
-int		ft_strncpy_test_9(void)
+int		ft_strncpy_test_8(void)
 {
 	int		ret;
 	int		size;
@@ -167,15 +157,14 @@ int		ft_strncpy_test_9(void)
 void	load_tests_ft_strncpy(struct s_test_wrap *func)
 {
 	func->name = "FT_STRNCPY";
-	func->n_tests = 9;
+	func->n_tests = 8;
 	zero_tests(func->tests);
 	load_test(&((func->tests)[0]), "Basic", ft_strncpy_test_1);
 	load_test(&((func->tests)[1]), "Overwrite", ft_strncpy_test_2);
 	load_test(&((func->tests)[2]), "Longer Src", ft_strncpy_test_3);
 	load_test(&((func->tests)[3]), "Longer Dst", ft_strncpy_test_4);
 	load_test(&((func->tests)[4]), "Empty Src", ft_strncpy_test_5);
-	load_test(&((func->tests)[5]), "Empty Dst", ft_strncpy_test_6);
-	load_test(&((func->tests)[6]), "NULL Src", ft_strncpy_test_7);
-	load_test(&((func->tests)[7]), "NULL Dst", ft_strncpy_test_8);
-	load_test(&((func->tests)[8]), "Long", ft_strncpy_test_9);
+	load_test(&((func->tests)[5]), "NULL Src", ft_strncpy_test_6);
+	load_test(&((func->tests)[6]), "NULL Dst", ft_strncpy_test_7);
+	load_test(&((func->tests)[7]), "Long", ft_strncpy_test_8);
 }

@@ -6,7 +6,7 @@
 #    By: rreedy <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/22 09:39:36 by rreedy            #+#    #+#              #
-#    Updated: 2020/05/04 04:47:05 by rreedy           ###   ########.fr        #
+#    Updated: 2020/05/04 05:55:39 by rreedy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ ifeq ($(shell uname -s),Darwin)
 endif
 
 CC := gcc
-CFLAGS += -g
+//CFLAGS += -g
 //CFLAGS += -Wall
 //CFLAGS += -Wextra
 //CFLAGS += -Werror

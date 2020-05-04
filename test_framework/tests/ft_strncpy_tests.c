@@ -10,7 +10,7 @@ int		ft_strncpy_test_1(void)
 	char	*tst = malloc(13);
 	char	*sys = malloc(13);
 
-	tst = _ft_strncpy(tst, "Hello World!", 13);
+	tst = ft_strncpy(tst, "Hello World!", 13);
 	sys = strncpy(sys, "Hello World!", 13);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -28,10 +28,10 @@ int		ft_strncpy_test_2(void)
 	char	*tst = malloc(13);
 	char	*sys = malloc(13);
 
-	tst = _ft_strncpy(tst, "Hello World!", 13);
+	tst = ft_strncpy(tst, "Hello World!", 13);
 	sys = strncpy(sys, "Hello World!", 13);
 
-	tst = _ft_strncpy(tst, src, 3);
+	tst = ft_strncpy(tst, src, 3);
 	sys = strncpy(sys, src, 3);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -48,7 +48,7 @@ int		ft_strncpy_test_3(void)
 	char	*tst = malloc(11);
 	char	*sys = malloc(11);
 
-	tst = _ft_strncpy(tst, "Hello World!!!", 16);
+	tst = ft_strncpy(tst, "Hello World!!!", 16);
 	sys = strncpy(sys, "Hello World!!!", 16);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -65,7 +65,7 @@ int		ft_strncpy_test_4(void)
 	char	*tst = malloc(18);
 	char	*sys = malloc(18);
 
-	tst = _ft_strncpy(tst, "Hello World!!!", 16);
+	tst = ft_strncpy(tst, "Hello World!!!", 16);
 	sys = strncpy(sys, "Hello World!!!", 16);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -82,7 +82,7 @@ int		ft_strncpy_test_5(void)
 	char	*sys = malloc(13);
 	char	*tst = malloc(13);
 
-	tst = _ft_strncpy(tst, "", 1);
+	tst = ft_strncpy(tst, "", 1);
 	sys = strncpy(sys, "", 1);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -97,7 +97,7 @@ int		ft_strncpy_test_6(void)
 {
 	char	*src = "Hello";
 
-	_ft_strncpy("", src, 6);
+	ft_strncpy("", src, 6);
 	strncpy("", src, 6);
 
 	return (1);
@@ -109,7 +109,7 @@ int		ft_strncpy_test_7(void)
 	char	*sys = malloc(13);
 	char	*tst = malloc(13);
 
-	tst = _ft_strncpy(tst, NULL, 1);
+	tst = ft_strncpy(tst, NULL, 1);
 	sys = strncpy(sys, NULL, 1);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -122,7 +122,7 @@ int		ft_strncpy_test_7(void)
 
 int		ft_strncpy_test_8(void)
 {
-	_ft_strncpy(NULL, "Hello World!", 1);
+	ft_strncpy(NULL, "Hello World!", 1);
 	strncpy(NULL, "Hello World!", 1);
 
 	return (1);
@@ -151,7 +151,7 @@ int		ft_strncpy_test_9(void)
 	sys[size - 1] = '\0';
 
 	size = size - (rand() % 10000);
-	tst = _ft_strncpy(tst, src, size);
+	tst = ft_strncpy(tst, src, size);
 	sys = strncpy(sys, src, size);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;

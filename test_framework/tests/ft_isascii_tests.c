@@ -13,15 +13,15 @@ int		ft_isascii_test_1(void)
 
 	tst[9] = '\0';
 	sprintf(tst, "%d%d%d%d%d%d%d%d%d",
-	(_ft_isascii(10) ? 1 : 0),
-	(_ft_isascii(100) ? 1 : 0),
-	(_ft_isascii(-8) ? 1 : 0),
-	(_ft_isascii(90) ? 1 : 0),
-	(_ft_isascii(127) ? 1 : 0),
-	(_ft_isascii(128) ? 1 : 0),
-	(_ft_isascii(0) ? 1 : 0),
-	(_ft_isascii(99) ? 1 : 0),
-	(_ft_isascii('z') ? 1 : 0));
+	(ft_isascii(10) ? 1 : 0),
+	(ft_isascii(100) ? 1 : 0),
+	(ft_isascii(-8) ? 1 : 0),
+	(ft_isascii(90) ? 1 : 0),
+	(ft_isascii(127) ? 1 : 0),
+	(ft_isascii(128) ? 1 : 0),
+	(ft_isascii(0) ? 1 : 0),
+	(ft_isascii(99) ? 1 : 0),
+	(ft_isascii('z') ? 1 : 0));
 
 	sys[9] = '\0';
 	sprintf(sys, "%d%d%d%d%d%d%d%d%d",

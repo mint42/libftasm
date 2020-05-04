@@ -10,7 +10,7 @@ int		ft_bzero_test_1(void)
 	char	tst[10] = "123456789";
 	char	sys[10] = "123456789";
 
-	_ft_bzero(tst, 5);
+	ft_bzero(tst, 5);
 	bzero(sys, 5);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -26,7 +26,7 @@ int		ft_bzero_test_2(void)
 	tst = strcpy(tst, "123456789");
 	sys = strcpy(sys, "123456789");
 
-	_ft_bzero(tst, 10);
+	ft_bzero(tst, 10);
 	bzero(sys, 10);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -46,7 +46,7 @@ int		ft_bzero_test_3(void)
 	tst = strcpy(tst, "123456789");
 	sys = strcpy(sys, "123456789");
 
-	_ft_bzero(tst, 11);
+	ft_bzero(tst, 11);
 	bzero(sys, 11);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -63,7 +63,7 @@ int		ft_bzero_test_4(void)
 
 	n = 10;
 
-	_ft_bzero("", n);
+	ft_bzero("", n);
 	bzero("", n);
 
 	return (1);
@@ -71,7 +71,7 @@ int		ft_bzero_test_4(void)
 
 int		ft_bzero_test_5(void)
 {
-	_ft_bzero(NULL, 10);
+	ft_bzero(NULL, 10);
 	bzero(NULL, 10);
 
 	return (1);
@@ -98,7 +98,7 @@ int		ft_bzero_test_6(void)
 	tst[size - 1] = '\0';
 	sys[size - 1] = '\0';
 
-	tst = _ft_strcpy(tst, src);
+	tst = ft_strcpy(tst, src);
 	sys = strcpy(sys, src);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;

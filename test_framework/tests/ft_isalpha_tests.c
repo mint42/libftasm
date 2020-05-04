@@ -13,17 +13,17 @@ int		ft_isalpha_test_1(void)
 
 	tst[11] = '\0';
 	sprintf(tst, "%d%d%d%d%d%d%d%d%d%d%d",
-	(_ft_isalpha('@') ? 1 : 0),
-	(_ft_isalpha('A') ? 1 : 0),
-	(_ft_isalpha('K') ? 1 : 0),
-	(_ft_isalpha('Z') ? 1 : 0),
-	(_ft_isalpha('[') ? 1 : 0),
-	(_ft_isalpha(96)), 
-	(_ft_isalpha('a') ? 1 : 0),
-	(_ft_isalpha('K') ? 1 : 0),
-	(_ft_isalpha('z') ? 1 : 0),
-	(_ft_isalpha(123) ? 1 : 0),
-	(_ft_isalpha(127) ? 1 : 0));
+	(ft_isalpha('@') ? 1 : 0),
+	(ft_isalpha('A') ? 1 : 0),
+	(ft_isalpha('K') ? 1 : 0),
+	(ft_isalpha('Z') ? 1 : 0),
+	(ft_isalpha('[') ? 1 : 0),
+	(ft_isalpha(96)), 
+	(ft_isalpha('a') ? 1 : 0),
+	(ft_isalpha('K') ? 1 : 0),
+	(ft_isalpha('z') ? 1 : 0),
+	(ft_isalpha(123) ? 1 : 0),
+	(ft_isalpha(127) ? 1 : 0));
 
 	sys[11] = '\0';
 	sprintf(sys, "%d%d%d%d%d%d%d%d%d%d%d",

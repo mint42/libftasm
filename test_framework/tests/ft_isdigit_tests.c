@@ -13,11 +13,11 @@ int		ft_isdigit_test_1(void)
 
 	tst[5] = '\0';
 	sprintf(tst, "%d%d%d%d%d",
-	(_ft_isdigit('/') ? 1 : 0),
-	(_ft_isdigit('0') ? 1 : 0),
-	(_ft_isdigit('4') ? 1 : 0),
-	(_ft_isdigit('9') ? 1 : 0),
-	(_ft_isdigit(':') ? 1 : 0));
+	(ft_isdigit('/') ? 1 : 0),
+	(ft_isdigit('0') ? 1 : 0),
+	(ft_isdigit('4') ? 1 : 0),
+	(ft_isdigit('9') ? 1 : 0),
+	(ft_isdigit(':') ? 1 : 0));
 
 	sys[5] = '\0';
 	sprintf(sys, "%d%d%d%d%d",

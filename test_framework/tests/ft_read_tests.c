@@ -29,7 +29,7 @@ int		ft_read_test_1(void)
 
 	while(42)
 	{
-		red_tst = _ft_read(fd_tst_src, buf_tst, 255);
+		red_tst = ft_read(fd_tst_src, buf_tst, 255);
 		if (red_tst == -1)
 			errno_tst = errno;
 		red_sys = read(fd_sys_src, buf_sys, 255);
@@ -63,7 +63,7 @@ int		ft_read_test_2(void)
 	int		errno_tst = 0;
 	int		errno_sys = 0;
 
-	red_tst = _ft_read(-1, "Hello World", 13);
+	red_tst = ft_read(-1, "Hello World", 13);
 	if (red_tst == -1)
 		errno_tst = errno;
 	red_sys = read(-1, "Hello World", 13);
@@ -84,7 +84,7 @@ int		ft_read_test_3(void)
 
 	fd = open("BAD", O_RDONLY);
 
-	red_tst = _ft_read(fd, "Hello World", 13);
+	red_tst = ft_read(fd, "Hello World", 13);
 	if (red_tst == -1)
 		errno_tst = errno;
 	red_sys = read(fd, "Hello World", 13);
@@ -105,7 +105,7 @@ int		ft_read_test_4(void)
 
 	fd = open("./Makefile", O_WRONLY);
 
-	red_tst = _ft_read(fd, "Hello World", 13);
+	red_tst = ft_read(fd, "Hello World", 13);
 	if (red_tst == -1)
 		errno_tst = errno;
 	red_sys = read(fd, "Hello World", 13);
@@ -127,7 +127,7 @@ int		ft_read_test_5(void)
 
 	fd = open("./Makefile", O_RDONLY);
 
-	red_tst = _ft_read(fd, "", 2);
+	red_tst = ft_read(fd, "", 2);
 	if (red_tst == -1)
 		errno_tst = errno;
 	red_sys = read(fd, "", 2);
@@ -148,7 +148,7 @@ int		ft_read_test_6(void)
 
 	fd = open("./Makefile", O_RDONLY);
 
-	red_tst = _ft_read(fd, NULL, 2);
+	red_tst = ft_read(fd, NULL, 2);
 	if (red_tst == -1)
 		errno_tst = errno;
 	red_sys = read(fd, NULL, 2);

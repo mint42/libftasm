@@ -10,7 +10,7 @@ int		ft_strlen_test_1(void)
 	size_t	tst;
 	size_t	sys;
 
-	tst = _ft_strlen("Hello World!");
+	tst = ft_strlen("Hello World!");
 	sys = strlen("Hello World!");
 
 	return ((tst == sys) ? 0 : 1);
@@ -21,7 +21,7 @@ int		ft_strlen_test_2(void)
 	size_t	tst;
 	size_t	sys;
 
-	tst = _ft_strlen("");
+	tst = ft_strlen("");
 	sys = strlen("");
 
 	return ((tst == sys) ? 0 : 1);
@@ -32,7 +32,7 @@ int		ft_strlen_test_3(void)
 	size_t	tst;
 	size_t	sys;
 
-	tst = _ft_strlen(NULL);
+	tst = ft_strlen(NULL);
 	sys = strlen(NULL);
 
 	return ((tst == sys) ? 0 : 1);
@@ -54,7 +54,7 @@ int		ft_strlen_test_4(void)
 	}
 	str[size - 1] = '\0';
 
-	tst = _ft_strlen(str);
+	tst = ft_strlen(str);
 	sys = strlen(str);
 	if (str)
 		free(str);

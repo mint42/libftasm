@@ -10,7 +10,7 @@ int		ft_strcpy_test_1(void)
 	char	*tst = malloc(13);
 	char	*sys = malloc(13);
 
-	tst = _ft_strcpy(tst, "Hello World!");
+	tst = ft_strcpy(tst, "Hello World!");
 	sys = strcpy(sys, "Hello World!");
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -28,10 +28,10 @@ int		ft_strcpy_test_2(void)
 	char	*tst = malloc(13);
 	char	*sys = malloc(13);
 
-	tst = _ft_strcpy(tst, "Hello World!");
+	tst = ft_strcpy(tst, "Hello World!");
 	sys = strcpy(sys, "Hello World!");
 
-	tst = _ft_strcpy(tst, src);
+	tst = ft_strcpy(tst, src);
 	sys = strcpy(sys, src);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -48,7 +48,7 @@ int		ft_strcpy_test_3(void)
 	char	*tst = malloc(11);
 	char	*sys = malloc(11);
 
-	tst = _ft_strcpy(tst, "Hello World!!!");
+	tst = ft_strcpy(tst, "Hello World!!!");
 	sys = strcpy(sys, "Hello World!!!");
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -65,7 +65,7 @@ int		ft_strcpy_test_4(void)
 	char	*tst = malloc(18);
 	char	*sys = malloc(18);
 
-	tst = _ft_strcpy(tst, "Hello World!!!");
+	tst = ft_strcpy(tst, "Hello World!!!");
 	sys = strcpy(sys, "Hello World!!!");
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -82,7 +82,7 @@ int		ft_strcpy_test_5(void)
 	char	*sys = malloc(13);
 	char	*tst = malloc(13);
 
-	tst = _ft_strcpy(tst, "");
+	tst = ft_strcpy(tst, "");
 	sys = strcpy(sys, "");
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -97,7 +97,7 @@ int		ft_strcpy_test_6(void)
 {
 	char	*src = "Hello";
 
-	_ft_strcpy("", src);
+	ft_strcpy("", src);
 	strcpy("", src);
 
 	return (1);
@@ -109,7 +109,7 @@ int		ft_strcpy_test_7(void)
 	char	*sys = malloc(13);
 	char	*tst = malloc(13);
 
-	tst = _ft_strcpy(tst, NULL);
+	tst = ft_strcpy(tst, NULL);
 	sys = strcpy(sys, NULL);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -122,8 +122,9 @@ int		ft_strcpy_test_7(void)
 
 int		ft_strcpy_test_8(void)
 {
-	_ft_strcpy(NULL, "Hello World!");
+	ft_strcpy(NULL, "Hello World!");
 	strcpy(NULL, "Hello World!");
+	return (1);
 }
 
 int		ft_strcpy_test_9(void)
@@ -143,7 +144,7 @@ int		ft_strcpy_test_9(void)
 	}
 	src[size - 1] = '\0';
 
-	tst = _ft_strcpy(tst, src);
+	tst = ft_strcpy(tst, src);
 	sys = strcpy(sys, src);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;

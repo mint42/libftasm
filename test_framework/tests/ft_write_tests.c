@@ -28,7 +28,7 @@ int		ft_write_test_1(void)
 	while(42)
 	{
 		red = read(fd_src, buf, 255);
-		bytes_tst = _ft_write(fd_tst_dst, buf, red);
+		bytes_tst = ft_write(fd_tst_dst, buf, red);
 		if (bytes_tst == -1)
 			errno_tst = errno;
 		bytes_sys = write(fd_sys_dst, buf, red);
@@ -61,7 +61,7 @@ int		ft_write_test_2(void)
 	int		errno_tst = 0;
 	int		errno_sys = 0;
 
-	bytes_tst = _ft_write(-1, "Hello World!", 13);
+	bytes_tst = ft_write(-1, "Hello World!", 13);
 	if (bytes_tst == -1)
 		errno_tst = errno;
 	bytes_sys = write(-1, "Hello World!", 13);
@@ -82,7 +82,7 @@ int		ft_write_test_3(void)
 
 	fd = open("BAD", O_WRONLY);
 
-	bytes_tst = _ft_write(fd, "Hello World!", 13);
+	bytes_tst = ft_write(fd, "Hello World!", 13);
 	if (bytes_tst == -1)
 		errno_tst = errno;
 	bytes_sys = write(fd, "Hello World!", 13);
@@ -103,7 +103,7 @@ int		ft_write_test_4(void)
 
 	fd = open("./Makefile", O_RDONLY);
 
-	bytes_tst = _ft_write(fd, "Hello World!", 13);
+	bytes_tst = ft_write(fd, "Hello World!", 13);
 	if (bytes_tst == -1)
 		errno_tst = errno;
 	bytes_sys = write(fd, "Hello World!", 13);
@@ -126,7 +126,7 @@ int		ft_write_test_5(void)
 	fd_tst = open("./test_tst_write.txt", O_WRONLY);
 	fd_sys = open("./test_sys_write.txt", O_WRONLY);
 
-	bytes_tst = _ft_write(fd_tst, "", 2);
+	bytes_tst = ft_write(fd_tst, "", 2);
 	if (bytes_tst == -1)
 		errno_tst = errno;
 	bytes_sys = write(fd_sys, "", 2);
@@ -149,7 +149,7 @@ int		ft_write_test_6(void)
 	fd_tst = open("./test_tst_write.txt", O_WRONLY);
 	fd_sys = open("./test_sys_write.txt", O_WRONLY);
 
-	bytes_tst = _ft_write(fd_tst, NULL, 2);
+	bytes_tst = ft_write(fd_tst, NULL, 2);
 	if (bytes_tst == -1)
 		errno_tst = errno;
 	bytes_sys = write(fd_sys, NULL, 2);

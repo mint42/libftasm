@@ -4,7 +4,7 @@
 
 global	_ft_strdup
 
-extern	malloc
+extern	_malloc
 extern	_ft_strlen
 extern	_ft_strncpy
 
@@ -23,7 +23,7 @@ _ft_strdup:
 			inc		rdi				; ++(len) for null term
 
 			push	rdi				; save (len)
-			call	malloc			; (len);
+			call	_malloc			; (len);
 			pop		rdx				; pop saved (len) into parameter 3
 
 			pop		rsi				; pop saved (s) into parameter 2

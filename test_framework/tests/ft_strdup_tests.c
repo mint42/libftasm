@@ -10,7 +10,7 @@ int		ft_strdup_test_1(void)
 	char	*tst;
 	char	*sys;
 
-	tst = _ft_strdup("Hello World!");
+	tst = ft_strdup("Hello World!");
 	sys = strdup("Hello World!");
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -27,7 +27,7 @@ int		ft_strdup_test_2(void)
 	char	*tst;
 	char	*sys;
 
-	tst = _ft_strdup("");
+	tst = ft_strdup("");
 	sys = strdup("");
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -44,7 +44,7 @@ int		ft_strdup_test_3(void)
 	char	*tst;
 	char	*sys;
 
-	tst = _ft_strdup(NULL);
+	tst = ft_strdup(NULL);
 	sys = strdup(NULL);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;
@@ -72,7 +72,7 @@ int		ft_strdup_test_4(void)
 	}
 	src[size - 1] = '\0';
 
-	tst = _ft_strdup(src);
+	tst = ft_strdup(src);
 	sys = strdup(src);
 
 	ret = (strcmp(tst, sys)) ? 1 : 0;

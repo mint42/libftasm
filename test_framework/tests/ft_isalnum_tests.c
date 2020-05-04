@@ -13,22 +13,22 @@ int		ft_isalnum_test_1(void)
 
 	tst[16] = '\0';
 	sprintf(tst, "%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d",
-	(_ft_isalnum('/') ? 1 : 0),
-	(_ft_isalnum('0') ? 1 : 0),
-	(_ft_isalnum('4') ? 1 : 0),
-	(_ft_isalnum('9') ? 1 : 0),
-	(_ft_isalnum(':') ? 1 : 0),
-	(_ft_isalnum('@') ? 1 : 0),
-	(_ft_isalnum('A') ? 1 : 0),
-	(_ft_isalnum('K') ? 1 : 0),
-	(_ft_isalnum('Z') ? 1 : 0),
-	(_ft_isalnum('[') ? 1 : 0),
-	(_ft_isalnum(96) ? 1 : 0),
-	(_ft_isalnum('a') ? 1 : 0),
-	(_ft_isalnum('K') ? 1 : 0),
-	(_ft_isalnum('z') ? 1 : 0),
-	(_ft_isalnum(123) ? 1 : 0),
-	(_ft_isalnum(127) ? 1 : 0));
+	(ft_isalnum('/') ? 1 : 0),
+	(ft_isalnum('0') ? 1 : 0),
+	(ft_isalnum('4') ? 1 : 0),
+	(ft_isalnum('9') ? 1 : 0),
+	(ft_isalnum(':') ? 1 : 0),
+	(ft_isalnum('@') ? 1 : 0),
+	(ft_isalnum('A') ? 1 : 0),
+	(ft_isalnum('K') ? 1 : 0),
+	(ft_isalnum('Z') ? 1 : 0),
+	(ft_isalnum('[') ? 1 : 0),
+	(ft_isalnum(96) ? 1 : 0),
+	(ft_isalnum('a') ? 1 : 0),
+	(ft_isalnum('K') ? 1 : 0),
+	(ft_isalnum('z') ? 1 : 0),
+	(ft_isalnum(123) ? 1 : 0),
+	(ft_isalnum(127) ? 1 : 0));
 
 	sys[16] = '\0';
 	sprintf(sys, "%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d",

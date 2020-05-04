@@ -9,7 +9,7 @@ int		ft_strcmp_test_1(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp("Hello Morld!", "Hello World!");
+	tst = ft_strcmp("Hello Morld!", "Hello World!");
 	sys = strcmp("Hello Morld!", "Hello World!");
 
 	return ((tst == sys) ? 0 : 1);
@@ -20,7 +20,7 @@ int		ft_strcmp_test_2(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp("Hello Morld!", "Hello World!!!");
+	tst = ft_strcmp("Hello Morld!", "Hello World!!!");
 	sys = strcmp("Hello Morld!", "Hello World!!!");
 
 	return ((tst == sys) ? 0 : 1);
@@ -31,7 +31,7 @@ int		ft_strcmp_test_3(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp("Hello World!!!", "Hello Morld!");
+	tst = ft_strcmp("Hello World!!!", "Hello Morld!");
 	sys = strcmp("Hello World!!!", "Hello Morld!");
 
 	return ((tst == sys) ? 0 : 1);
@@ -42,7 +42,7 @@ int		ft_strcmp_test_4(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp("Hello World!", "");
+	tst = ft_strcmp("Hello World!", "");
 	sys = strcmp("Hello World!", "");
 
 	return ((tst == sys) ? 0 : 1);
@@ -53,7 +53,7 @@ int		ft_strcmp_test_5(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp("", "Hello World!");
+	tst = ft_strcmp("", "Hello World!");
 	sys = strcmp("", "Hello World!");
 
 	return ((tst == sys) ? 0 : 1);
@@ -64,7 +64,7 @@ int		ft_strcmp_test_6(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp("", "");
+	tst = ft_strcmp("", "");
 	sys = strcmp("", "");
 
 	return ((tst == sys) ? 0 : 1);
@@ -75,7 +75,7 @@ int		ft_strcmp_test_7(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp("Hello World!", NULL);
+	tst = ft_strcmp("Hello World!", NULL);
 	sys = strcmp("Hello World!", NULL);
 
 	return ((tst == sys) ? 0 : 1);
@@ -86,7 +86,7 @@ int		ft_strcmp_test_8(void)
 	int		tst;
 	int		sys;
 
-	tst = _ft_strcmp(NULL, "Hello World!");
+	tst = ft_strcmp(NULL, "Hello World!");
 	sys = strcmp(NULL, "Hello World!");
 
 	return ((tst == sys) ? 0 : 1);
@@ -116,7 +116,7 @@ int		ft_strcmp_test_9(void)
 	src[size - 1] = '\0';
 	dst[size - 1] = '\0';
 
-	tst = _ft_strcmp(dst, src);
+	tst = ft_strcmp(dst, src);
 	sys = strcmp(dst, src);
 	if (src)
 		free(src);

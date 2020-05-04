@@ -2,13 +2,13 @@
 ;	int		ft_set_errno(int errno);	;
 ;---------------------------------------;
 
-global	_ft_set_errno
+global	ft_set_errno
 
 extern	__errno_location
 
 section	.text
 
-_ft_set_errno:
+ft_set_errno:
 	push	rbp
 	mov		rbp, rsp
 

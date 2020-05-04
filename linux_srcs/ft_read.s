@@ -2,13 +2,13 @@
 ;	ssize_t		ft_read(int fd, void *buf, size_t count);	;
 ;-----------------------------------------------------------;
 
-global	_ft_read
+global	ft_read
 
-extern	_ft_set_errno
+extern	ft_set_errno
 
 section	.text
 
-_ft_read:
+ft_read:
 		push	rbp
 		mov		rbp, rsp
 
@@ -18,7 +18,7 @@ _ft_read:
 		cmp		rax, 0x0		; if (ret >= 0)
 		jge		_end			;	goto _end
 
-		call	_ft_set_errno	; (errno);
+		call	ft_set_errno	; (errno);
 
 _end:
 		pop		rbp

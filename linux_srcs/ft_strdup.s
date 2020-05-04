@@ -2,20 +2,20 @@
 ;	char	*ft_strdup(const char *s);	;
 ;---------------------------------------;
 
-global	_ft_strdup
+global	ft_strdup
 
 extern	malloc
-extern	_ft_strlen
-extern	_ft_strncpy
+extern	ft_strlen
+extern	ft_strncpy
 
 section .text
 
-_ft_strdup:
+ft_strdup:
 			push	rbp
 			mov		rbp, rsp
 
 			push	rdi				; save (s)
-			call	_ft_strlen		; (s);
+			call	ft_strlen		; (s);
 									; dont need to pop (s) because it will
 									; need pushed again for malloc() call
 
@@ -29,7 +29,7 @@ _ft_strdup:
 			pop		rsi				; pop saved (s) into parameter 2
 			mov		rdi, rax		; move (new memory) into parameter 1
 
-			call	_ft_strncpy		; (new_mem, s, len);
+			call	ft_strncpy		; (new_mem, s, len);
 
 			pop		rbp
 			ret

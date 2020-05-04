@@ -2,11 +2,11 @@
 ;	int		ft_strcmp(const char *s1, const char *s2);	;
 ;-------------------------------------------------------;
 
-global	_ft_strcmp
+global	ft_strcmp
 
 section .text
 
-_ft_strcmp:
+ft_strcmp:
 			push	rbp
 			mov		rbp, rsp
 

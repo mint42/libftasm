@@ -2,13 +2,13 @@
 ;	char	*ft_strncpy(char *dst, const char *src, size_t len);	;
 ;-------------------------------------------------------------------;
 
-global	_ft_strncpy
+global	ft_strncpy
 
-extern	_ft_bzero
+extern	ft_bzero
 
 section .text
 
-_ft_strncpy:
+ft_strncpy:
 			push	rbp
 			mov		rbp, rsp
 
@@ -28,7 +28,7 @@ _break:
 
 _call_ft_bzero:
 			mov		rsi, rdx		; move len to param 2
-			call	_ft_bzero		; (dst, len);
+			call	ft_bzero		; (dst, len);
 
 _end:
 			pop		rbp

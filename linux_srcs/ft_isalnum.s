@@ -1,34 +1,22 @@
-; ---------------------------------------------------------------------------- ;
-;                                                                              ;
-;                                                         :::      ::::::::    ;
-;    ft_isalnum.s                                       :+:      :+:    :+:    ;
-;                                                     +:+ +:+         +:+      ;
-;    By: rreedy <marvin@42.fr>                      +#+  +:+       +#+         ;
-;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2019/12/20 00:11:45 by rreedy            #+#    #+#              ;
-;    Updated: 2019/12/20 00:11:45 by rreedy           ###   ########.fr        ;
-;                                                                              ;
-; ---------------------------------------------------------------------------- ;
+;---------------------------;
+;	int ft_isalnum(int c);	;
+;---------------------------;
 
-;
-; int ft_isalnum(int c);
-;
+global	ft_isalnum
 
-global	_ft_isalnum
-
-extern	_ft_isalpha
-extern	_ft_isdigit
+extern	ft_isalpha
+extern	ft_isdigit
 
 section .text
 
-_ft_isalnum:
+ft_isalnum:
 	push	rbp
 	mov		rbp, rsp
 
-	call	_ft_isalpha	; (c);
+	call	ft_isalpha	; (c);
 	cmp		rax, 0x0	; if (ret != 0)
 	jne		_end		;	goto _end
-	call	_ft_isdigit ; (c);
+	call	ft_isdigit	; (c);
 
 _end:
 	pop		rbp

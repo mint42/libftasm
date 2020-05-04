@@ -2,14 +2,11 @@
 ;	char	*ft_strcpy(char *dst, const char *src);	;
 ;---------------------------------------------------;
 
-global	_ft_strcpy
-
-extern	_ft_strlen
-extern	_ft_strncpy
+global	ft_strcpy
 
 section .text
 
-_ft_strcpy:
+ft_strcpy:
 			push	rbp
 			mov		rbp, rsp
 

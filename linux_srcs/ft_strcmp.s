@@ -24,8 +24,9 @@ _dec:
 			dec		rsi				; --s2
 
 _end:
-			mov		rax, [rdi]		; ret = *s1
-			sub		rax, [rsi]		; ret = ret - *s2
+			movzx	rax, byte [rdi]	; ret = *s1
+			sub		al, byte [rsi]	; ret = ret - *s2
+			movsx	rax, al			; move back into large register
 
 			pop		rbp
 			ret
